@@ -1,3 +1,9 @@
 {
-    "patches": []
+    "patches": [
+        {
+            "label": "2025-12-04_17-29-46",
+            "content": "from abc import ABC, abstractmethod\n\nclass Animal(ABC):\n    def __init__(self, nome: str):\n",
+            "lines": "4"
+        }
+    ]
 }
