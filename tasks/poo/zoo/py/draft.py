@@ -9,7 +9,7 @@ class Animal(ABC):
 
     @abstractmethod
     #def apresetar_nome(self):
-    #   pass  //  metodo sem orientação
+    #   pass  #  metodo sem orientação
 
     def apresentar_nome(self):
         pass
