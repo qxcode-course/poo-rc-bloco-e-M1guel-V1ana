@@ -2,8 +2,13 @@
     "patches": [
         {
             "label": "2025-12-04_17-29-46",
-            "content": "from abc import ABC, abstractmethod\n\nclass Animal(ABC):\n    def __init__(self, nome: str):\n",
+            "content": "@@ -88,64 +88,4 @@\n r):%0A\n-%0A%0A%0A%0A%0Aanimais: list%5Bany%5D = %5B%5D%0A%0Afor animais in Animal:%0A    ...\n",
             "lines": "4"
+        },
+        {
+            "label": "2025-12-04_17-43-31",
+            "content": "from abc import ABC, abstractmethod\n\nclass Animal(ABC):\n    def __init__(self, nome: str):\n\n\n\n\n\nanimais: list[any] = []\n\nfor animais in Animal:\n    ...",
+            "lines": "13"
         }
     ]
 }
