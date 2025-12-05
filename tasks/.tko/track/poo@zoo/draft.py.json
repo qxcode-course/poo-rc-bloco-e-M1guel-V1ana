@@ -52,8 +52,23 @@
         },
         {
             "label": "2025-12-05_16-31-21",
-            "content": "from abc import ABC, abstractmethod\n# importando o modulo abc para defini\u00e7\u00e3o de classes abstratas\n\n\n#Cria\u00e7\u00e3o de uma classe abstrata.\nclass Animal(ABC):\n    def __init__(self, nome: str):\n        self.__nome = nome\n\n    def getNome(self):\n        return self.__nome\n\n    @abstractmethod\n    def apresentar_nome(self):\n        pass\n\n    @abstractmethod\n    def fazer_som(self):\n        pass\n\n   # @abstractmethod\n    #def mover(self): # me retorna vazio, por hora irei fazer assim, pois achei mais simples\n     #   pass\n\n\n\nclass Zebra(Animal):\n    def __init__(self, nome: str):\n        super().__init__(nome)\n\n    def apresentar_nome(self):\n        print(f\"Eu sou um(a) <{self.getNome()}>!\")\n\n    def fazer_som(self):\n        return \"a zebra faz zurro!\"\n\n\nclass Lobo(Animal):\n    def __init__(self, nome: str):\n        super().__init__(nome)\n\n    def apresentar_nome(self):\n        print(f\"Eu sou um(a) <{self.getNome()}>!\")\n\n    def fazer_som(self):\n        return \"o lobo faz auuuuuu!\"\n\n\n\nclass Pato(Animal):\n    def __init__(self, nome: str):\n        super().__init__(nome)\n\n    def apresentar_nome(self):\n        print(f\"Eu sou um(a) <{self.getNome()}>\")\n\n    def fazer_som(self):\n        return \"o pato faz Quack!\"\n\n\n\nanimais: list[Animal] = [Zebra(\"Zebra\"), Lobo(\"Lobo\"), Pato(\"Patin\")]\n\nfor animal in animais:\n    animal.apresentar_nome()\n    print(animal.fazer_som())",
+            "content": "@@ -378,32 +378,33 @@\n        pass%0A%0A   \n+#\n  @abstractmethod\n@@ -404,24 +404,25 @@\n tmethod%0A    \n+#\n def mover(se\n@@ -500,136 +500,23 @@\n ples\n- ( por hora)\n %0A     \n+#\n   \n+ \n pass%0A\n-%0Adef apresentar(animal: Animal):%0A    animal.apresentar_nome()%0A    animal.fazer_som()%0A    animal.mover()\n %0A%0A%0Ac\n@@ -751,84 +751,8 @@\n !%22%0A%0A\n-    def mover(self):%0A        return (%22Zebra est%C3%A1 correndo: pocot%C3%B3 pocot%C3%B3%22)%0A%0A\n %0Acla\n@@ -963,81 +963,27 @@\n rn %22\n-A-woooooooooo!%22%0A%0A    def mover(self):%0A        return %22 tum-tum... tum-tum\n+o lobo faz auuuuuu!\n %22%0A%0A%0A\n@@ -1197,67 +1197,25 @@\n rn %22\n-Quack!%22%0A%0A    def mover(self):%0A        return %22squish squish\n+o pato faz Quack!\n %22%0A%0A%0A\n@@ -1342,27 +1342,8 @@\n e()%0A\n-    animal.mover()%0A\n     \n",
             "lines": "66"
+        },
+        {
+            "label": "2025-12-05_17-42-11",
+            "content": "@@ -1621,30 +1621,24 @@\n _nome()%0A    \n-print(\n animal.mover\n@@ -1639,17 +1639,16 @@\n .mover()\n-)\n %0A    pri\n",
+            "lines": "80"
+        },
+        {
+            "label": "2025-12-05_17-42-59",
+            "content": "@@ -1200,16 +1200,17 @@\n return %22\n+ \n tum-tum.\n",
+            "lines": "80"
+        },
+        {
+            "label": "2025-12-05_17-46-08",
+            "content": "from abc import ABC, abstractmethod\n# importando o modulo abc para defini\u00e7\u00e3o de classes abstratas\n\n\n#Cria\u00e7\u00e3o de uma classe abstrata.\nclass Animal(ABC):\n    def __init__(self, nome: str):\n        self.__nome = nome\n\n    def getNome(self):\n        return self.__nome\n\n    @abstractmethod\n    def apresentar_nome(self):\n        pass\n\n    @abstractmethod\n    def fazer_som(self):\n        pass\n\n    @abstractmethod\n    def mover(self): # me retorna vazio, por hora irei fazer assim, pois achei mais simples ( por hora)\n       pass\n\ndef apresentar(animal: Animal):\n    animal.apresentar_nome()\n    animal.fazer_som()\n    animal.mover()\n\n\nclass Zebra(Animal):\n    def __init__(self, nome: str):\n        super().__init__(nome)\n\n    def apresentar_nome(self):\n        print(f\"Eu sou um(a) <{self.getNome()}>!\")\n\n    def fazer_som(self):\n        return \"a zebra faz zurro!\"\n\n    def mover(self):\n        return (\"Zebra est\u00e1 correndo: pocot\u00f3 pocot\u00f3\")\n\n\nclass Lobo(Animal):\n    def __init__(self, nome: str):\n        super().__init__(nome)\n\n    def apresentar_nome(self):\n        print(f\"Eu sou um(a) <{self.getNome()}>!\")\n\n    def fazer_som(self):\n        return \"A-woooooooooo!\"\n\n    def mover(self):\n        return \"tum-tum... tum-tum\"\n\n\n\nclass Pato(Animal):\n    def __init__(self, nome: str):\n        super().__init__(nome)\n\n    def apresentar_nome(self):\n        print(f\"Eu sou um(a) <{self.getNome()}>\")\n\n    def fazer_som(self):\n        return \"Quack!\"\n\n    def mover(self):\n        return \"squish squish\"\n\n\n\nanimais: list[Animal] = [Zebra(\"Zebra\"), Lobo(\"Lobo\"), Pato(\"Patin\")]\n\nfor animal in animais:\n    animal.apresentar_nome()\n    print(animal.mover())\n    print(animal.fazer_som())",
+            "lines": "80"
         }
     ]
 }

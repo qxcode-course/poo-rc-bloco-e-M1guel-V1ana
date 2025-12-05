@@ -18,10 +18,14 @@ class Animal(ABC):
     def fazer_som(self):
         pass
 
-   # @abstractmethod
-    #def mover(self): # me retorna vazio, por hora irei fazer assim, pois achei mais simples
-     #   pass
+    @abstractmethod
+    def mover(self): # me retorna vazio, por hora irei fazer assim, pois achei mais simples ( por hora)
+       pass
 
+def apresentar(animal: Animal):
+    animal.apresentar_nome()
+    animal.fazer_som()
+    animal.mover()
 
 
 class Zebra(Animal):
@@ -34,6 +38,9 @@ class Zebra(Animal):
     def fazer_som(self):
         return "a zebra faz zurro!"
 
+    def mover(self):
+        return ("Zebra está correndo: pocotó pocotó")
+
 
 class Lobo(Animal):
     def __init__(self, nome: str):
@@ -43,7 +50,10 @@ class Lobo(Animal):
         print(f"Eu sou um(a) <{self.getNome()}>!")
 
     def fazer_som(self):
-        return "o lobo faz auuuuuu!"
+        return "A-woooooooooo!"
+
+    def mover(self):
+        return "tum-tum... tum-tum"
 
 
 
@@ -55,7 +65,10 @@ class Pato(Animal):
         print(f"Eu sou um(a) <{self.getNome()}>")
 
     def fazer_som(self):
-        return "o pato faz Quack!"
+        return "Quack!"
+
+    def mover(self):
+        return "squish squish"
 
 
 
@@ -63,4 +76,5 @@ animais: list[Animal] = [Zebra("Zebra"), Lobo("Lobo"), Pato("Patin")]
 
 for animal in animais:
     animal.apresentar_nome()
+    print(animal.mover())
     print(animal.fazer_som())
