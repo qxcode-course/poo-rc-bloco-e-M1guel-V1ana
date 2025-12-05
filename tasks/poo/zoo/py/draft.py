@@ -18,7 +18,9 @@ class Animal(ABC):
     def fazer_som(self):
         pass
 
-
+   # @abstractmethod
+    #def mover(self): # me retorna vazio, por hora irei fazer assim, pois achei mais simples
+     #   pass
 
 
 
@@ -48,6 +50,7 @@ class Lobo(Animal):
 class Pato(Animal):
     def __init__(self, nome: str):
         super().__init__(nome)
+
     def apresentar_nome(self):
         print(f"Eu sou um(a) <{self.getNome()}>")
 
@@ -55,7 +58,8 @@ class Pato(Animal):
         return "o pato faz Quack!"
 
 
-animais: list[any] = [Zebra("Zebra"), Lobo("Lobo"), Pato("Patin")]
+
+animais: list[Animal] = [Zebra("Zebra"), Lobo("Lobo"), Pato("Patin")]
 
 for animal in animais:
     animal.apresentar_nome()

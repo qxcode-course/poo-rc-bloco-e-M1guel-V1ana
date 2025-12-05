@@ -37,8 +37,23 @@
         },
         {
             "label": "2025-12-05_01-51-21",
-            "content": "from abc import ABC, abstractmethod\n# importando o modulo abc para defini\u00e7\u00e3o de classes abstratas\n\n\n#Cria\u00e7\u00e3o de uma classe abstrata.\nclass Animal(ABC):\n    def __init__(self, nome: str):\n        self.__nome = nome\n\n    def getNome(self):\n        return self.__nome\n\n    @abstractmethod\n    def apresentar_nome(self):\n        pass\n\n    @abstractmethod\n    def fazer_som(self):\n        pass\n\n\n\n\n\nclass Zebra(Animal):\n    def __init__(self, nome: str):\n        super().__init__(nome)\n\n    def apresentar_nome(self):\n        print(f\"Eu sou um(a) <{self.getNome()}>!\")\n\n    def fazer_som(self):\n        return \"a zebra faz zurro!\"\n\n\nclass Lobo(Animal):\n    def __init__(self, nome: str):\n        super().__init__(nome)\n\n    def apresentar_nome(self):\n        print(f\"Eu sou um(a) <{self.getNome()}>!\")\n\n    def fazer_som(self):\n        return \"o lobo faz auuuuuu!\"\n\n\n\nclass Pato(Animal):\n    def __init__(self, nome: str):\n        super().__init__(nome)\n    def apresentar_nome(self):\n        print(f\"Eu sou um(a) <{self.getNome()}>\")\n\n    def fazer_som(self):\n        return \"o pato faz Quack!\"\n\n\nanimais: list[any] = [Zebra(\"Mico\"), Lobo(\"Alfred\"), Pato(\"Geraldinho\")]\n\nfor animal in animais:\n    animal.apresentar_nome()\n    print(animal.fazer_som())",
+            "content": "@@ -381,24 +381,26 @@\n     pass%0A%0A%0A%0A\n+%0A%0A\n class Zebra(\n@@ -934,33 +934,32 @@\n .__init__(nome)%0A\n-%0A\n     def apresent\n@@ -1086,17 +1086,16 @@\n ack!%22%0A%0A%0A\n-%0A\n animais:\n@@ -1100,22 +1100,19 @@\n s: list%5B\n-Animal\n+any\n %5D = %5BZeb\n@@ -1115,21 +1115,20 @@\n %5BZebra(%22\n-Zebra\n+Mico\n %22), Lobo\n@@ -1129,20 +1129,22 @@\n , Lobo(%22\n-Lobo\n+Alfred\n %22), Pato\n@@ -1149,13 +1149,18 @@\n to(%22\n-Patin\n+Geraldinho\n %22)%5D%0A\n",
             "lines": "62"
+        },
+        {
+            "label": "2025-12-05_16-28-25",
+            "content": "@@ -387,134 +387,8 @@\n ss%0A%0A\n-    @abstractmethod%0A    def mover(self): # me retorna vazio, por hora irei fazer assim, pois achei mais simples%0A        pass%0A%0A\n %0A%0Acl\n",
+            "lines": "62"
+        },
+        {
+            "label": "2025-12-05_16-31-01",
+            "content": "@@ -386,17 +386,16 @@\n ass%0A%0A   \n-#\n  @abstra\n@@ -407,17 +407,16 @@\n hod%0A    \n-#\n def move\n@@ -500,17 +500,16 @@\n es%0A     \n-#\n    pass%0A\n",
+            "lines": "66"
+        },
+        {
+            "label": "2025-12-05_16-31-21",
+            "content": "from abc import ABC, abstractmethod\n# importando o modulo abc para defini\u00e7\u00e3o de classes abstratas\n\n\n#Cria\u00e7\u00e3o de uma classe abstrata.\nclass Animal(ABC):\n    def __init__(self, nome: str):\n        self.__nome = nome\n\n    def getNome(self):\n        return self.__nome\n\n    @abstractmethod\n    def apresentar_nome(self):\n        pass\n\n    @abstractmethod\n    def fazer_som(self):\n        pass\n\n   # @abstractmethod\n    #def mover(self): # me retorna vazio, por hora irei fazer assim, pois achei mais simples\n     #   pass\n\n\n\nclass Zebra(Animal):\n    def __init__(self, nome: str):\n        super().__init__(nome)\n\n    def apresentar_nome(self):\n        print(f\"Eu sou um(a) <{self.getNome()}>!\")\n\n    def fazer_som(self):\n        return \"a zebra faz zurro!\"\n\n\nclass Lobo(Animal):\n    def __init__(self, nome: str):\n        super().__init__(nome)\n\n    def apresentar_nome(self):\n        print(f\"Eu sou um(a) <{self.getNome()}>!\")\n\n    def fazer_som(self):\n        return \"o lobo faz auuuuuu!\"\n\n\n\nclass Pato(Animal):\n    def __init__(self, nome: str):\n        super().__init__(nome)\n\n    def apresentar_nome(self):\n        print(f\"Eu sou um(a) <{self.getNome()}>\")\n\n    def fazer_som(self):\n        return \"o pato faz Quack!\"\n\n\n\nanimais: list[Animal] = [Zebra(\"Zebra\"), Lobo(\"Lobo\"), Pato(\"Patin\")]\n\nfor animal in animais:\n    animal.apresentar_nome()\n    print(animal.fazer_som())",
+            "lines": "66"
         }
     ]
 }
