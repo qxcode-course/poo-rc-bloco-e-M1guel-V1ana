@@ -11,10 +11,11 @@ class Animal(ABC):
         return self.__nome
 
     @abstractmethod
-    #def apresetar_nome(self):
-    #   pass  #  metodo sem orientação
-
     def apresentar_nome(self):
+        pass
+
+    @abstractmethod
+    def fazer_som(self):
         pass
 
 
@@ -22,23 +23,40 @@ class Animal(ABC):
 
 
 class Zebra(Animal):
+    def __init__(self, nome: str):
+        super().__init__(nome)
+
     def apresentar_nome(self):
         print(f"Eu sou um(a) <{self.getNome()}>!")
 
+    def fazer_som(self):
+        return "a zebra faz zurro!"
 
 
 class Lobo(Animal):
+    def __init__(self, nome: str):
+        super().__init__(nome)
+
     def apresentar_nome(self):
         print(f"Eu sou um(a) <{self.getNome()}>!")
+
+    def fazer_som(self):
+        return "o lobo faz auuuuuu!"
 
 
 
 class Pato(Animal):
+    def __init__(self, nome: str):
+        super().__init__(nome)
     def apresentar_nome(self):
         print(f"Eu sou um(a) <{self.getNome()}>")
 
+    def fazer_som(self):
+        return "o pato faz Quack!"
 
-animais: list[any] = [Zebra("Mico"), Lobo("Alfred"), Pato("Geraldinho")]
+
+animais: list[any] = [Zebra("Zebra"), Lobo("Lobo"), Pato("Patin")]
 
 for animal in animais:
     animal.apresentar_nome()
+    print(animal.fazer_som())
