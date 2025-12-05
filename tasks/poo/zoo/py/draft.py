@@ -1,7 +1,6 @@
 from abc import ABC, abstractmethod
 # importando o modulo abc para definição de classes abstratas
 
-
 #Criação de uma classe abstrata.
 class Animal(ABC):
     def __init__(self, nome: str):
@@ -11,29 +10,28 @@ class Animal(ABC):
         return self.__nome
 
     @abstractmethod
-    def apresentar_nome(self):
+    def apresentar_nome(self) -> str:
         pass
 
     @abstractmethod
-    def fazer_som(self):
+    def fazer_som(self) ->str:
         pass
 
     @abstractmethod
-    def mover(self): # me retorna vazio, por hora irei fazer assim, pois achei mais simples ( por hora)
+    def mover(self) ->str: # me retorna vazio, por hora irei fazer assim, pois achei mais simples ( por hora)
        pass
 
 def apresentar(animal: Animal):
-    animal.apresentar_nome()
-    animal.fazer_som()
-    animal.mover()
-
+    print(animal.apresentar_nome())
+    print(animal.fazer_som())
+    print(animal.mover())
 
 class Zebra(Animal):
     def __init__(self, nome: str):
         super().__init__(nome)
 
     def apresentar_nome(self):
-        print(f"Eu sou um(a) <{self.getNome()}>!")
+        return f"Eu sou um(a) <{self.getNome()}>!"
 
     def fazer_som(self):
         return "a zebra faz zurro!"
@@ -47,13 +45,13 @@ class Lobo(Animal):
         super().__init__(nome)
 
     def apresentar_nome(self):
-        print(f"Eu sou um(a) <{self.getNome()}>!")
+        return f"Eu sou um(a) <{self.getNome()}>!"
 
     def fazer_som(self):
         return "A-woooooooooo!"
 
     def mover(self):
-        return "tum-tum... tum-tum"
+        return "O lobo anda silenciosamente pela neve..."
 
 
 
@@ -62,19 +60,43 @@ class Pato(Animal):
         super().__init__(nome)
 
     def apresentar_nome(self):
-        print(f"Eu sou um(a) <{self.getNome()}>")
+        return f"Eu sou um(a) <{self.getNome()}>"
 
     def fazer_som(self):
         return "Quack!"
 
     def mover(self):
-        return "squish squish"
+        return "o pato nada no lago"
 
 
+class Cachorro(Animal):
+    def __init__(self, nome: str):
+        super().__init__(nome)
 
-animais: list[Animal] = [Zebra("Zebra"), Lobo("Lobo"), Pato("Patin")]
+    def apresentar_nome(self) -> str:
+        return f"Eu sou um(a) <{self.getNome()}>"
+
+    def fazer_som(self) ->str:
+        return "au au"
+    def mover(self) ->str:
+        return "o cachorro pede carinho ao dono"
+
+class Dragao(Animal):
+    def __init__(self, nome: str):
+        super().__init__(nome)
+
+    def apresentar_nome(self) -> str:
+        return f"Eu sou um(a) <{self.getNome()}> "
+
+    def fazer_som(self) ->str:
+        return "Rawr / Rwar"
+
+    def mover(self) ->str:
+        return "O dragão bate as asas e voa"
+
+animais: list[Animal] = [Zebra("Zebra"), Lobo("Lobo"), Pato("Patin"), Cachorro("Cachorro"), Dragao("Dragão")]
 
 for animal in animais:
-    animal.apresentar_nome()
-    print(animal.mover())
+    print(animal.apresentar_nome())
     print(animal.fazer_som())
+    print(animal.mover())
