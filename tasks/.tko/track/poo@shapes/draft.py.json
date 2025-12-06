@@ -1,0 +1,9 @@
+{
+    "patches": [
+        {
+            "label": "2025-12-06_20-47-41",
+            "content": "from abc import ABC, abstractmethod\n\nclass Shape(ABC):\n    def __init__(self, area, perimetro, nome ):\n        self.area = area\n        self.perimetro = perimetro\n        self.nome = nome\n\n    def getArea(self):\n        return self.area\n    def getPerimeter(self):\n        return  self.perimetro\n    def getName(self):\n        return self.nome\n\n\nclass Point2D():\n    def __init__(self, x: float, y: float):\n        self.x = x\n        self.y = y\n\n\n    def __str__(self):\n        return f\"({self.x}, {self.y})\"\n\nclass Circle(Shape):\n    def __init__(self, ):",
+            "lines": "27"
+        }
+    ]
+}
