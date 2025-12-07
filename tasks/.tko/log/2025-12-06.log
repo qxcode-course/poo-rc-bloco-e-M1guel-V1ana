@@ -53,3 +53,8 @@
 2025-12-06 23:43:53, EXEC, v:1, k:poo@shapes, mode:FULL, rate:80, size:111
 2025-12-06 23:45:03, EXEC, v:1, k:poo@shapes, mode:FULL, rate:100, size:114
 2025-12-06 23:46:24, MOVE, v:1, k:poo@shapes, mode:BACK
+2025-12-06 23:47:48, MOVE, v:1, k:poo@estacionamento, mode:DOWN
+2025-12-06 23:58:08, MOVE, v:1, k:poo@estacionamento, mode:PICK
+2025-12-06 23:58:09, EXEC, v:1, k:poo@estacionamento, mode:FULL, rate:0, size:17
+2025-12-06 23:58:10, EXEC, v:1, k:poo@estacionamento, mode:FULL, rate:0
+2025-12-06 23:58:11, MOVE, v:1, k:poo@estacionamento, mode:BACK
