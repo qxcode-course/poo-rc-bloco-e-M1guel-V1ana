@@ -37,8 +37,23 @@
         },
         {
             "label": "2025-12-14_14-52-38",
-            "content": "from abc import ABC, abstractmethod\n\n\nclass Veiculo(ABC):\n    def __init__(self, id: str, tipo: str, horaEntrada: int):\n        self.id = id\n        self.tipo = tipo\n        self.horaEntrada = horaEntrada\n\n    def getEntrada(self) -> int:\n        return self.horaEntrada\n    def getTipo(self) -> str:\n        return self.tipo\n    def getId(self) -> str:\n        return self.id\n\n    def sethoraEntrada(self, hora: int) -> None:\n        self.horaEntrada = hora\n\n    @abstractmethod\n    def calcularHorasaida(self, horaSaida: int):\n        pass\n\n    def __str__(self):\n        return f\"{self.id}: {self.tipo} : {self.horaEntrada}\"\n\n\n\n\n\n\n\n\ndef main():\n    estacionar: list[Estacionamento] = []\n\n\n    while True:\n\n        line = input()\n        print(\"$\" + line)\n        args: list[args] = line.split(\" \")\n\n        if args[0] == \"end\":\n            break\n        if args[0] == \"show\":\n            print(estacionar)\n\nmain()",
+            "content": "@@ -630,60 +630,8 @@\n %0A%0A%0A%0A\n-class Bike(Veiculo):%0A    def __init__(self):%0A%0A%0A%0A%0A%0A%0A%0A\n %0A%0A%0Ad\n",
             "lines": "49"
+        },
+        {
+            "label": "2025-12-14_14-54-10",
+            "content": "@@ -107,20 +107,18 @@\n ntrada: \n-floa\n+in\n t):%0A    \n@@ -481,37 +481,41 @@\n     def calcular\n-Valor\n+Horasaida\n (self, horaSaida\n@@ -623,16 +623,19 @@\n ada%7D%22%0A%0A%0A\n+%0A%0A%0A\n class Bi\n@@ -672,337 +672,10 @@\n self\n-, id: str):%0A        super().__init__(id)%0A    def calcularValor(self, horaSaida: int) -%3E float:%0A        return 3.0%0A%0A%0Aclass Moto(Veiculo):%0A    def __init__(self, id: str):%0A        super().__init__(id)%0A%0A    def calcularValor(self, horaSaida: int) -%3E float:%0A        tempo = horaSaida - self.getEntrada()%0A        return tempo / 20%0A%0A%0A%0A\n+):\n %0A%0A%0A%0A\n",
+            "lines": "58"
+        },
+        {
+            "label": "2025-12-14_15-10-06",
+            "content": "@@ -994,281 +994,16 @@\n 20%0A%0A\n-class Carro(Veiculo):%0A    def __init__(self, id: str):%0A        super.__init__(id)%0A%0A    def calcularValor(self, horaSaida: int) -%3E float:%0A        tempo = horaSaida - self.getEntrada()%0A        valor = tempo / 10%0A        return max(valor, 5.0)%0A%0A%0Aprint(bike.calcularValor(100))\n+%0A%0A%0A%0A%0A%0A%0A%0A\n %0A%0A%0A%0A\n@@ -1058,16 +1058,17 @@\n %5D = %5B%5D%0A%0A\n+%0A\n     whil\n",
+            "lines": "71"
+        },
+        {
+            "label": "2025-12-14_15-17-49",
+            "content": "from abc import ABC, abstractmethod\n\n\nclass Veiculo(ABC):\n    def __init__(self, id: str, tipo: str, horaEntrada: float):\n        self.id = id\n        self.tipo = tipo\n        self.horaEntrada = horaEntrada\n\n    def getEntrada(self) -> int:\n        return self.horaEntrada\n    def getTipo(self) -> str:\n        return self.tipo\n    def getId(self) -> str:\n        return self.id\n\n    def sethoraEntrada(self, hora: int) -> None:\n        self.horaEntrada = hora\n\n    @abstractmethod\n    def calcularValor(self, horaSaida: int):\n        pass\n\n    def __str__(self):\n        return f\"{self.id}: {self.tipo} : {self.horaEntrada}\"\n\n\nclass Bike(Veiculo):\n    def __init__(self, id: str):\n        super().__init__(id)\n    def calcularValor(self, horaSaida: int) -> float:\n        return 3.0\n\n\nclass Moto(Veiculo):\n    def __init__(self, id: str):\n        super().__init__(id)\n\n    def calcularValor(self, horaSaida: int) -> float:\n        tempo = horaSaida - self.getEntrada()\n        return tempo / 20\n\nclass Carro(Veiculo):\n    def __init__(self, id: str):\n        super.__init__(id)\n\n    def calcularValor(self, horaSaida: int) -> float:\n        tempo = horaSaida - self.getEntrada()\n        valor = tempo / 10\n        return max(valor, 5.0)\n\n\nprint(bike.calcularValor(100))\n\n\n\n\ndef main():\n    estacionar: list[Estacionamento] = []\n\n    while True:\n\n        line = input()\n        print(\"$\" + line)\n        args: list[args] = line.split(\" \")\n\n        if args[0] == \"end\":\n            break\n        if args[0] == \"show\":\n            print(estacionar)\n\nmain()",
+            "lines": "72"
         }
     ]
 }
