@@ -42,7 +42,7 @@ class Moto(Veiculo):
 
 class Carro(Veiculo):
     def __init__(self, id: str):
-        super.__init__(id, "Carro")
+        super().__init__(id, "Carro")
 
     def calcularValor(self, horaSaida: int) -> float:
         tempo = horaSaida - self.getEntrada()
@@ -55,7 +55,46 @@ class Estacionamento:
         self.horaAtual = horaAtual
         self.veiculos: list[Veiculo] = []
 
-    def procurarVeiculo
+    def procurarVeiculo(self, id: str) -> int:
+        for i, veiculos in enumerate(self.veiculos):
+            if veiculos.getId() == id:
+                return i
+        return -1
+
+
+    def estacionar(self, veiculo: Veiculo) -> None :
+        veiculo.setEntrada(self.horaAtual)
+        self.veiculos.append(veiculo)
+    def pagar(self, id: str) -> None:
+        pos = self.procurarVeiculo(id)
+        if pos == -1:
+            print("veiculo não encontrado")
+            return
+
+        veiculo = self.veiculos[pos]
+        valor = veiculo.calcularValor(self.horaAtual)
+        print(f" Valor a pagar: R$ {valor:.2f}")
+
+    def sair(self, id: str):
+        pos = self.procuarVeiculo(id)
+        if pos == -1:
+            print("Veiculo não encontrado")
+            return
+
+        veiculo = self.veiculos[pos]
+        valor = veiculo.calcularValor(self.horaAtual)
+        print(f"veiculo: {id} saiu. Valor pago: R$: {valor:.2f}")
+    def passarTempo(self, tempo: int) -> None:
+        self.horaAtual += tempo
+
+
+    def __str__(self):
+        return
+
+
+
+
+
 
 def main():
     estacionar: list[Estacionamento] = []
@@ -70,5 +109,6 @@ def main():
             break
         if args[0] == "show":
             print(estacionar)
+        if args[0] == "estacionar":
 
 main()

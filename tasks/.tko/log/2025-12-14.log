@@ -26,3 +26,8 @@
 2025-12-14 15:10:06, EXEC, v:1, k:poo@estacionamento, mode:FULL, rate:0, size:71
 2025-12-14 15:17:49, EXEC, v:1, k:poo@estacionamento, mode:FREE, size:72
 2025-12-14 15:46:30, MOVE, v:1, k:poo@estacionamento, mode:BACK
+2025-12-14 16:07:53, MOVE, v:1, k:poo@estacionamento, mode:PICK
+2025-12-14 16:14:34, EXEC, v:1, k:poo@estacionamento, mode:FULL, rate:0, size:88
+2025-12-14 16:14:36, EXEC, v:1, k:poo@estacionamento, mode:FULL, rate:0
+2025-12-14 16:30:06, EXEC, v:1, k:poo@estacionamento, mode:FULL, rate:0, size:106
+2025-12-14 16:52:41, MOVE, v:1, k:poo@estacionamento, mode:BACK
