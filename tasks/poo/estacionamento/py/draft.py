@@ -2,10 +2,10 @@ from abc import ABC, abstractmethod
 
 
 class Veiculo(ABC):
-    def __init__(self, id: str, tipo: str):
+    def __init__(self, id: str, tipo: str, horaEntrada: int):
         self.id = id
         self.tipo = tipo
-        self.horaEntrada = None
+        self.horaEntrada = horaEntrada
 
     def getEntrada(self) -> int:
         return self.horaEntrada
@@ -26,23 +26,24 @@ class Veiculo(ABC):
 
 
 class Bike(Veiculo):
-    def __init__(self, id: str):
-        super().__init__(id, "Bike")
+    def __str__(self, id, tipo, horaEntrada):
+        super().__str__(id, tipo, horaEntrada)
+
     def calcularValor(self, horaSaida: int) -> float:
-        return 3.0
+        return 3.00
 
 
 class Moto(Veiculo):
-    def __init__(self, id: str):
-        super().__init__(id, "Moto")
+    def __init__(self, id, tipo, horaEntrada):
+        super().__init__(id, tipo, horaEntrada)
 
     def calcularValor(self, horaSaida: int) -> float:
         tempo = horaSaida - self.getEntrada()
         return tempo / 20
 
 class Carro(Veiculo):
-    def __init__(self, id: str):
-        super().__init__(id, "Carro")
+    def __init__(self, id, tipo, horaEntrada):
+        super().__init__(id, tipo, horaEntrada)
 
     def calcularValor(self, horaSaida: int) -> float:
         tempo = horaSaida - self.getEntrada()
@@ -55,14 +56,10 @@ class Carro(Veiculo):
 
 class Estacionamento:
     def __init__(self, horaAtual: int = 0):
-        self.horaAtual = horaAtual
         self.veiculos: list[Veiculo] = []
+        self. horaAtual = horaAtual
 
-    def procurarVeiculo(self, id: str) -> int:
-        for i, veiculos in enumerate(self.veiculos):
-            if veiculos.getId() == id:
-                return i
-        return -1
+    def procucarVeiculo(self, id: str):
 
 
     def estacionar(self, veiculo: Veiculo) -> None :
@@ -91,12 +88,7 @@ class Estacionamento:
         self.horaAtual += tempo
 
     def __str__(self):
-        txt = ""
-
-        for v in self.veiculos:
-            txt += f"{v.getTipo()}: {v.getId()}: {v.getEntrada()}\n"
-        txt += f"Hora atual: {self.horaAtual}"
-        return txt
+        veiculos = "\n". join(str(x) for x in self.veiculos)
 
 def main():
     estacionar = Estacionamento()
