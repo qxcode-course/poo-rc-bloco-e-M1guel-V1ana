@@ -47,11 +47,14 @@ class Carro(Veiculo):
     def calcularValor(self, horaSaida: int) -> float:
         tempo = horaSaida - self.getEntrada()
         valor = tempo / 10
-        return max(valor, 5.0)
+        if valor > 5:
+            return f"{valor:.2f}"
+        else:
+            return f"{5:.2f}"
 
 
 class Estacionamento:
-    def __init__(self, horaAtual: int):
+    def __init__(self, horaAtual: int = 0):
         self.horaAtual = horaAtual
         self.veiculos: list[Veiculo] = []
 
@@ -76,7 +79,7 @@ class Estacionamento:
         print(f" Valor a pagar: R$ {valor:.2f}")
 
     def sair(self, id: str):
-        pos = self.procuarVeiculo(id)
+        pos = self.procurarVeiculo(id)
         if pos == -1:
             print("Veiculo não encontrado")
             return
@@ -87,28 +90,30 @@ class Estacionamento:
     def passarTempo(self, tempo: int) -> None:
         self.horaAtual += tempo
 
-
     def __str__(self):
-        return
+        txt = ""
 
-
-
-
-
+        for v in self.veiculos:
+            txt += f"{v.getTipo()}: {v.getId()}: {v.getEntrada()}\n"
+        txt += f"Hora atual: {self.horaAtual}"
+        return txt
 
 def main():
-    estacionar: list[Estacionamento] = []
+    estacionar = Estacionamento()
 
     while True:
 
         line = input()
         print("$" + line)
-        args: list[args] = line.split(" ")
+        args = line.split(" ")
 
         if args[0] == "end":
             break
-        if args[0] == "show":
+        elif args[0] == "show":
             print(estacionar)
-        if args[0] == "estacionar":
 
+        elif args[0] == "tempo":
+            estacionar.passarTempo(int(args[1]))
+        else:
+            print("fail: comando invalido!!!")
 main()
