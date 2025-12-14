@@ -12,8 +12,33 @@
         },
         {
             "label": "2025-12-10_11-00-42",
-            "content": "from abc import ABC, abstractmethod\n\nclass Veiculo(ABC):\n    def __init__(self, id: str, tipo: str, horaentrada: int):\n        self.id = id\n        self.tipo = tipo\n        self.horaentrada = horaentrada\n\n    def setEntrada(self, hora: int):\n        self.horaentrada = hora\n\n    def getEntrada(self):\n        return self.horaentrada\n    def getTipo(self):\n        return self.tipo\n    def getId(self):\n        return self.id\n\n    def __str__(self):\n        return f\"{self.tipo}: {self.id}: {self.horaentrada}}\"\n\n\n    @abstractmethod\n    def calcHorasaida(self, horasaida: int):\n        pass\n\n\n\nclass Estacionamento:\n    def __init__(self, horaAtual: int = 0 ):\n        self.listaveiculos: list[Veiculo] = []\n        self.horaAtual = horaAtual\n\n",
+            "content": "@@ -34,265 +34,678 @@\n od%0A%0A\n-%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0Adef main():%0A    estacionar: list%5BEstacionamento%5D = %5B%5D%0A%0A%0A    while True:%0A%0A        line = input()%0A        print(%22$%22 + line)%0A        args: list%5Bargs%5D = line.split(%22 %22)%0A%0A        if args%5B0%5D == %22end%22:%0A            break%0A        if args%5B0%5D == %22show%22:\n+class Veiculo(ABC):%0A    def __init__(self, id: str, tipo: str, horaentrada: int):%0A        self.id = id%0A        self.tipo = tipo%0A        self.horaentrada = horaentrada%0A%0A    def setEntrada(self, hora: int):%0A        self.horaentrada = hora%0A%0A    def getEntrada(self):%0A        return self.horaentrada%0A    def getTipo(self):%0A        return self.tipo%0A    def getId(self):%0A        return self.id%0A%0A    def __str__(self):%0A        return f%22%7Bself.tipo%7D: %7Bself.id%7D: %7Bself.horaentrada%7D%7D%22%0A%0A%0A    @abstractmethod%0A    def calcHorasaida(self, horasaida: int):%0A        pass%0A%0A%0A%0Aclass Estacionamento:%0A    def __init__(self, horaAtual: int = 0 ):%0A        self.listaveiculos: list%5BVeiculo%5D = %5B%5D\n %0A   \n@@ -713,33 +713,32 @@\n     \n-    print(estacionar)%0A%0Amain()\n+self.horaAtual = horaAtual%0A%0A\n",
             "lines": "33"
+        },
+        {
+            "label": "2025-12-14_14-13-47",
+            "content": "@@ -35,61 +35,8 @@\n d%0A%0A%0A\n-class Veiculo(ABC):%0A    def __init__(self, id: str, :\n %0A%0A%0A%0A\n",
+            "lines": "33"
+        },
+        {
+            "label": "2025-12-14_14-15-35",
+            "content": "@@ -83,17 +83,16 @@\n d: str, \n-)\n :%0A%0A%0A%0A%0A%0A%0A\n",
+            "lines": "34"
+        },
+        {
+            "label": "2025-12-14_14-15-46",
+            "content": "@@ -31,17 +31,16 @@\n ethod%0A%0A%0A\n-#\n class Ve\n@@ -56,9 +56,8 @@\n ):%0A \n-#\n    d\n",
+            "lines": "34"
+        },
+        {
+            "label": "2025-12-14_14-15-55",
+            "content": "@@ -1,94 +1,126 @@\n-from abc import ABC, abstractmethod%0A%0A%0Aclass Veiculo(ABC):%0A    def __init__(self, id: s\n+@@ -31,16 +31,17 @@%0A ethod%250A%250A%250A%0A+#%0A class Ve%0A@@ -53,16 +53,17 @@%0A (ABC):%250A %0A+#%0A    def _%0A@@ -89,545 +89,15 @@%0A \n tr, \n+%0A-\n tipo\n@@ -136,33 +136,35 @@\n raEntrada: int):\n-%0A\n+%250A\n         self.id \n@@ -167,17 +167,19 @@\n .id = id\n-%0A\n+%250A\n         \n@@ -190,25 +190,27 @@\n .tipo = tipo\n-%0A\n+%250A\n         self\n@@ -235,18 +235,22 @@\n aEntrada\n-%0A%0A\n+%250A%250A\n     def \n@@ -271,15 +271,19 @@\n f) -\n-%3E\n+%253E\n  int:\n-%0A\n+%250A\n     \n@@ -309,17 +309,19 @@\n aEntrada\n-%0A\n+%250A\n     def \n@@ -327,39 +327,43 @@\n  getTipo(self) -\n-%3E\n+%253E\n  str:\n-%0A\n+%250A\n         return s\n@@ -370,17 +370,19 @@\n elf.tipo\n-%0A\n+%250A\n     def \n@@ -398,15 +398,19 @@\n f) -\n-%3E\n+%253E\n  str:\n-%0A\n+%250A\n     \n@@ -427,18 +427,22 @@\n  self.id\n-%0A%0A\n+%250A%250A\n     def \n@@ -478,16 +478,20 @@\n t) -\n-%3E\n+%253E\n  None:\n-%0A\n+%250A\n     \n@@ -517,18 +517,22 @@\n a = hora\n-%0A%0A\n+%250A%250A\n     @abs\n@@ -542,17 +542,19 @@\n ctmethod\n-%0A\n+%250A\n     def \n@@ -593,17 +593,19 @@\n a: int):\n-%0A\n+%250A\n         \n@@ -608,18 +608,22 @@\n     pass\n-%0A%0A\n+%250A%250A\n     def \n@@ -636,17 +636,19 @@\n _(self):\n-%0A\n+%250A\n         \n@@ -659,21 +659,29 @@\n rn f\n-%22%7B\n+%2522%257B\n self.id\n-%7D: %7B\n+%257D: %257B\n self\n@@ -689,13 +689,17 @@\n tipo\n-%7D : %7B\n+%257D : %257B\n self\n@@ -714,295 +714,44 @@\n rada\n-%7D%22%0A%0A%0A%0A%0A%0A%0A%0A%0Adef main():%0A    estacionar: list%5BEstacionamento%5D = %5B%5D%0A%0A%0A    while True:%0A%0A        line = input()%0A        print(%22$%22 + line)%0A        args: list%5Bargs%5D = line.split(%22 %22)%0A%0A        if args%5B0%5D == %22end%22:%0A            break%0A        if args%5B0%5D == %22show%22:%0A            print(estacionar)%0A%0Amain()\n+%257D%2522%0A+):%250A%250A%250A%250A%250A%0A %250A%250A%250A%250A%0A\n",
+            "lines": "13"
+        },
+        {
+            "label": "2025-12-14_14-52-38",
+            "content": "from abc import ABC, abstractmethod\n\n\nclass Veiculo(ABC):\n    def __init__(self, id: str, tipo: str, horaEntrada: int):\n        self.id = id\n        self.tipo = tipo\n        self.horaEntrada = horaEntrada\n\n    def getEntrada(self) -> int:\n        return self.horaEntrada\n    def getTipo(self) -> str:\n        return self.tipo\n    def getId(self) -> str:\n        return self.id\n\n    def sethoraEntrada(self, hora: int) -> None:\n        self.horaEntrada = hora\n\n    @abstractmethod\n    def calcularHorasaida(self, horaSaida: int):\n        pass\n\n    def __str__(self):\n        return f\"{self.id}: {self.tipo} : {self.horaEntrada}\"\n\n\n\n\n\n\n\n\ndef main():\n    estacionar: list[Estacionamento] = []\n\n\n    while True:\n\n        line = input()\n        print(\"$\" + line)\n        args: list[args] = line.split(\" \")\n\n        if args[0] == \"end\":\n            break\n        if args[0] == \"show\":\n            print(estacionar)\n\nmain()",
+            "lines": "49"
         }
     ]
 }
