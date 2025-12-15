@@ -22,36 +22,35 @@ class Veiculo(ABC):
         pass
 
     def __str__(self):
-        return f"{self.tipo}: {self.id} : {self.horaEntrada}"
+        id_fmt = self.id.rjust(10, "_")
+        tipo_fmt = self.tipo.rjust(10, "_")
+        return f"{tipo_fmt} : {id_fmt} : {self.horaEntrada}"
 
 
 class Bike(Veiculo):
-    def __str__(self, id, tipo, horaEntrada):
-        super().__str__(id, tipo, horaEntrada)
+    def __init__(self, id, horaEntrada: int):
+        super().__init__(id, "Bike", horaEntrada)
 
-    def calcularValor(self, horaSaida: int) -> float:
+    def calcularValor(self, horaSaida: int = 0) -> float:
         return 3.00
 
 
 class Moto(Veiculo):
-    def __init__(self, id, tipo, horaEntrada):
-        super().__init__(id, tipo, horaEntrada)
+    def __init__(self, id, horaEntrada: int):
+        super().__init__(id, "Moto", horaEntrada)
 
     def calcularValor(self, horaSaida: int) -> float:
         tempo = horaSaida - self.getEntrada()
         return tempo / 20
 
 class Carro(Veiculo):
-    def __init__(self, id, tipo, horaEntrada):
-        super().__init__(id, tipo, horaEntrada)
+    def __init__(self, id: str, horaEntrada: int):
+        super().__init__(id,"Carro", horaEntrada)
 
     def calcularValor(self, horaSaida: int) -> float:
         tempo = horaSaida - self.getEntrada()
         valor = tempo / 10
-        if valor > 5:
-            return f"{valor:.2f}"
-        else:
-            return f"{5:.2f}"
+        return max(valor, 5.00)
 
 
 class Estacionamento:
@@ -60,35 +59,44 @@ class Estacionamento:
         self. horaAtual = horaAtual
 
     def procucarVeiculo(self, id: str):
+        for veiculos in self.veiculos:
+            if veiculos.id == id:
+                return veiculos
+        return None
 
 
-    def estacionar(self, veiculo: Veiculo) -> None :
-        veiculo.setEntrada(self.horaAtual)
+    def estacionarVeiculo(self, veiculo: Veiculo):
         self.veiculos.append(veiculo)
+
     def pagar(self, id: str) -> None:
-        pos = self.procurarVeiculo(id)
-        if pos == -1:
+        veiculo = self.procucarVeiculo(id)
+
+        if not veiculo:
             print("veiculo não encontrado")
             return
+        entrada = veiculo.getEntrada()
+        saida = self.horaAtual
+        valor = veiculo.calcularValor(saida)
+        print(f"{veiculo.getTipo()} chegou {entrada} saiu {saida}. Pagar R$ {valor:.2f}")
 
-        veiculo = self.veiculos[pos]
-        valor = veiculo.calcularValor(self.horaAtual)
-        print(f" Valor a pagar: R$ {valor:.2f}")
 
     def sair(self, id: str):
-        pos = self.procurarVeiculo(id)
-        if pos == -1:
-            print("Veiculo não encontrado")
+        veiculo = self.procucarVeiculo(id)
+        if not veiculo:
+            print("veiculo não encontrado")
             return
-
-        veiculo = self.veiculos[pos]
-        valor = veiculo.calcularValor(self.horaAtual)
+        valor = veiculo.calcularValor(id)
+        self.veiculos.remove(veiculo)
         print(f"veiculo: {id} saiu. Valor pago: R$: {valor:.2f}")
+
     def passarTempo(self, tempo: int) -> None:
         self.horaAtual += tempo
 
     def __str__(self):
-        veiculos = "\n". join(str(x) for x in self.veiculos)
+        if not self.veiculos:
+            return f"Hora atual: {self.horaAtual}"
+        listVeiculos = "\n".join(str(x) for x in self.veiculos)
+        return f"{listVeiculos}\nHora atual: {self.horaAtual}"
 
 def main():
     estacionar = Estacionamento()
@@ -103,9 +111,17 @@ def main():
             break
         elif args[0] == "show":
             print(estacionar)
-
         elif args[0] == "tempo":
             estacionar.passarTempo(int(args[1]))
+        elif args[0] == "estacionar":
+            if args[1] == "bike":
+                estacionar.estacionarVeiculo(Bike(args[2], estacionar.horaAtual))
+            if args[1] == "moto":
+                estacionar.estacionarVeiculo(Moto(args[2], estacionar.horaAtual))
+            if args[1] == "carro":
+                estacionar.estacionarVeiculo(Carro(args[2], estacionar.horaAtual))
+        elif args[0] == "pagar":
+            estacionar.pagar(args[1])
         else:
             print("fail: comando invalido!!!")
 main()
